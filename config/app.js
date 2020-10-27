@@ -8,18 +8,11 @@
 /** @typedef {import('./declarations').IncludeConfig} IncludeConfig */
 /** @typedef {import('./declarations').BuildConfig} BuildConfig */
 
+const {firebaseConfig} = require('./firebase-config');
+
 /** @type {Record<Environments, FirebaseConfig>} */
 const FirebaseConfigs = {
-    production: {
-        apiKey: "...",
-        authDomain: "...",
-        databaseURL: "...",
-        projectId: "...",
-        storageBucket: "...",
-        messagingSenderId: "...",
-        appId: "...",
-        measurementId: "..."
-    },
+    production: firebaseConfig,
     get staging() { return FirebaseConfigs.production },
     get development() { return FirebaseConfigs.staging; },
 };
