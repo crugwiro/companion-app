@@ -1,4 +1,5 @@
 /** @typedef {(import ('../common/services/firebase').FirebaseConfig)} FirebaseConfig */
+/** @typedef {(import ('../common/declarations/process').FirebasePlatformConfig)} FirebasePlatformConfig */
 
 /*
     Provides settings generated from the Firebase 
@@ -16,6 +17,19 @@ const firebaseConfig = {
     measurementId: "..."
 };
 
+/** @type {FirebasePlatformConfig} */
+const firebaseMobileConfig = {
+    ios: {
+        appId: '...',
+        apiKey: '...',
+    },
+    android: {
+        appId: '...',
+        apiKey: '...',
+    },
+};
+
 module.exports = {
     firebaseConfig,
+    firebaseMobileConfig,
 };

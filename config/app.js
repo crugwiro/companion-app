@@ -8,7 +8,7 @@
 /** @typedef {import('./declarations').IncludeConfig} IncludeConfig */
 /** @typedef {import('./declarations').BuildConfig} BuildConfig */
 
-const {firebaseConfig} = require('./firebase-config');
+const {firebaseConfig, firebaseMobileConfig} = require('./firebase-config');
 
 /** @type {Record<Environments, FirebaseConfig>} */
 const FirebaseConfigs = {
@@ -19,16 +19,7 @@ const FirebaseConfigs = {
 
 /** @type {Record<Environments, FirebasePlatformConfig>} */
 const FirebasePlatformOverrides = {
-    production: {
-        ios: {
-            appId: '...',
-            apiKey: '...',
-        },
-        android: {
-            appId: '...',
-            apiKey: '...',
-        },
-    },
+    production: firebaseMobileConfig,
     get staging() { return FirebasePlatformOverrides.production; },
     get development() { return FirebasePlatformOverrides.staging; },
 };
