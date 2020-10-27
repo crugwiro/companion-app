@@ -64,3 +64,5 @@ buck-out/
 
 # Other
 dependencies
+android/.project
+android/.settings
