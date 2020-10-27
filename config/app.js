@@ -8,7 +8,11 @@
 /** @typedef {import('./declarations').IncludeConfig} IncludeConfig */
 /** @typedef {import('./declarations').BuildConfig} BuildConfig */
 
-const {firebaseConfig, firebaseMobileConfig} = require('./firebase-config');
+const {
+    firebaseConfig, 
+    firebaseMobileConfig,
+    integrationConfigs,
+} = require('./project-config');
 
 /** @type {Record<Environments, FirebaseConfig>} */
 const FirebaseConfigs = {
@@ -37,9 +41,7 @@ const GoogleConfigs = {
 
 /** @type {Record<Environments, IntegrationConfigs>} */
 const Integrations = {
-    production: {
-        SentryDsn: '...' // sentry url,
-    },
+    production: integrationConfigs,
     get staging() { return Integrations.production; },
     get development() { return Integrations.staging; },
 };

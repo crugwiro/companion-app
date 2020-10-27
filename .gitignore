@@ -9,4 +9,4 @@ temp/
 .env
 yarn-error.log
 
-config/firebase-config.js
+config/project-config.js
