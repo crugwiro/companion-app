@@ -67,4 +67,5 @@ dependencies
 android/.project
 android/.settings
 configs/app
-android/sentry.properties
+*/sentry.properties
+
