@@ -5,4 +5,4 @@ git clone https://github.com/HeyMaslo/react-native-switch-pro.git
 cd ../..
 yarn all
 cd mobile/ios
-pod install
+pod install --repo-update
