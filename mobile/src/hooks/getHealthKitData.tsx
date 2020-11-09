@@ -3,8 +3,17 @@ import AppleHealthKit from 'rn-apple-healthkit';
 
 const PERMS = AppleHealthKit.Constants.Permissions;
 
-const useHealthKit = () => {
-  const [data, setData] = useState(null);
+const getHealthKitData = () => {
+  const [data, setData] = useState({
+    gender: null
+  });
+
+  const updateData = (field,value) => {
+      setData({
+        ...data,
+        [field]: value
+      });
+  };
 
   const options = {
     permissions: {
@@ -23,10 +32,10 @@ const useHealthKit = () => {
     if (err) {
       console.log(`Error returning sex`, err);
     } 
-    setData(results);
+    updateData("gender",results);
 });
 
   return data;
 };
 
-export default useHealthKit;
+export default getHealthKitData;

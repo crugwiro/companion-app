@@ -7,7 +7,7 @@ import { ITipItem, TipTypes } from 'src/viewModels/components/TipItemViewModel';
 import InfoIcon from 'src/assets/images/info-icon.svg';
 import PlusIcon from 'src/assets/images/plus-icon.svg';
 import ShareIcon from 'src/assets/images/share-icon.svg';
-import useHealthKit from '../../hooks/useHealthKit';
+import getHealthKitData from '../../hooks/getHealthKitData';
 
 function getTipIcon(type: TipTypes) {
     switch (type) {
@@ -46,15 +46,15 @@ export default function TipItemCard(props: { item: ITipItem, onPress: () => void
     const { onPress, item } = props;
     const { type, title } = item;
     const [loading, setLoading] = useState(true);
-    const data = useHealthKit();
+    const data = getHealthKitData();
 
     useEffect(() => {
-        if (data) setLoading(false);
+        if (data.gender) setLoading(false);
       }, [data]);
 
     const isExternal = (item.type === 'staticTip' || item.type === 'docLinkTip') && !!item.url;
 
-
+    //console.log(data.gender);
     return (
         <TouchableOpacity onPress={onPress}>
             <View style={[styles.card]}>
@@ -64,7 +64,7 @@ export default function TipItemCard(props: { item: ITipItem, onPress: () => void
                 > 
                     {title}
                 </Text>
-                <Text style={{color: "white"}}>Gender: {loading ? "Fetching" : data.value}</Text>
+                {<Text style={{color: "white"}}>Gender: {loading ? "Fetching" : data.gender.value}</Text>}
                 <View style={styles.footing}>
                     <View style={styles.type}>
                         {getTipIcon(type)}
