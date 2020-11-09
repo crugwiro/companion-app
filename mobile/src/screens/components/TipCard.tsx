@@ -54,7 +54,6 @@ export default function TipItemCard(props: { item: ITipItem, onPress: () => void
 
     const isExternal = (item.type === 'staticTip' || item.type === 'docLinkTip') && !!item.url;
 
-    //console.log(data.gender);
     return (
         <TouchableOpacity onPress={onPress}>
             <View style={[styles.card]}>
