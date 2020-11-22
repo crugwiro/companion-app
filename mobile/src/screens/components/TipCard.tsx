@@ -53,7 +53,7 @@ export default function TipItemCard(props: { item: ITipItem, onPress: () => void
                 <Text
                     numberOfLines={2}
                     style={[!Layout.isSmallDevice ? TextStyles.p1 : TextStyles.p3, styles.cardTitle]}
-                > 
+                >
                     {title}
                 </Text>
                 <View style={styles.footing}>
